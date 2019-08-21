@@ -1,0 +1,19 @@
+.NotFoundContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+}
+
+.NotFoundText {
+  font-family: "Righteous", cursive;
+  font-size: 5em;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.NotFoundImg {
+  max-width: 200px;
+  max-height: 200px;
+}

@@ -1,0 +1,55 @@
+.GifContainer {
+  list-style: none;
+  margin: 0;
+  padding: 30px;
+  background: #111;
+  column-count: 1;
+  column-gap: 6px;
+  border-radius: 30px;
+}
+
+.GifContainerDisplay {
+  /* display: flex;
+  align-content: center; */
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: transparent;
+}
+.GifContainerDisplay:hover {
+  background: rgb(0, 255, 153);
+  border: 2px solid rgb(0, 255, 153);
+  border-bottom-color: transparent;
+}
+
+.GifDisplay {
+  width: 100%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .GifContainer {
+    column-count: 2;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .GifContainer {
+    column-count: 3;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .GifContainer {
+    column-count: 4;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .GifContainer {
+    column-count: 5;
+  }
+}

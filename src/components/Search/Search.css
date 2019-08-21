@@ -1,0 +1,6 @@
+.SearchContainer {
+  display: flex;
+  background: #111;
+  padding: 20px;
+  border-radius: 30px;
+}
