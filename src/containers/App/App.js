@@ -9,6 +9,7 @@ import GifsList from "../../components/GifsList/GifsList";
 import Tags from "../../components/Tags/Tags";
 import Wrapper from "../../components/UI/Wrapper/Wrapper";
 import Spinner from "../../components/UI/Spinner/Spinner";
+
 const App = () => {
   const [gifs, setGifs] = useState([]);
   const [gifsTags, setGifsTags] = useState(["hey", "funny", "tacos"]);
