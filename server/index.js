@@ -1,13 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const pino = require("express-pino-logger")();
 const request = require("request");
 const myKey = "QaTaTpn5xJGGG1Wktc0Gq6CEhsiSz2R3";
 const app = express();
 let port = process.env.PORT || 3001;
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(pino);
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //this is the / path
 app.use(express.static(path.join(__dirname, "../build")));
