@@ -1,13 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const pino = require("express-pino-logger")();
 const request = require("request");
-
+const myKey = "QaTaTpn5xJGGG1Wktc0Gq6CEhsiSz2R3";
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
+console.log(path.join(__dirname, "../build"));
+app.use(express.static(path.join(__dirname, "../build")));
 
-const myKey = "QaTaTpn5xJGGG1Wktc0Gq6CEhsiSz2R3";
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
+
 app.get("/trending", (req, res) => {
   const url = `https://api.giphy.com/v1/gifs/trending?api_key=${myKey}&limit=${
     req.query.limit
