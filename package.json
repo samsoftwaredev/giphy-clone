@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://samsoftwaredev.github.io/giphy-clone",
+  "homepage": "https://samsoftwaredev.github.io/server-giphy-clone",
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
