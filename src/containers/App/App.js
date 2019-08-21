@@ -158,6 +158,7 @@ const App = () => {
         />
       </Wrapper>
       <Wrapper>{spinner ? <Spinner /> : display}</Wrapper>
+      <p>Powered By GIPHY</p>
     </div>
   );
 };
