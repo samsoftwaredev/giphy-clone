@@ -1,6 +1,9 @@
 .GifsListContainer {
-}
-.GifsList:first-child {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  list-style: none;
+  margin: 0;
+  padding: 30px;
+  background: #111;
+  column-count: 1;
+  column-gap: 6px;
+  border-radius: 30px;
 }

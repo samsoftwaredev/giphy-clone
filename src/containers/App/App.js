@@ -10,9 +10,8 @@ import Tags from "../../components/Tags/Tags";
 import Wrapper from "../../components/UI/Wrapper/Wrapper";
 import Spinner from "../../components/UI/Spinner/Spinner";
 const App = () => {
-  const myKey = "QaTaTpn5xJGGG1Wktc0Gq6CEhsiSz2R3";
   const [gifs, setGifs] = useState([]);
-  const [gifsTags, setGifsTags] = useState(["hey", "funny", "love"]);
+  const [gifsTags, setGifsTags] = useState(["hey", "funny", "tacos"]);
   const [searchStr, setSearchStr] = useState("");
   const [spinner, setSpinner] = useState(true);
   const [windowPosition, setWindowPosition] = useState(0);
@@ -38,11 +37,7 @@ const App = () => {
   };
   const trendingGifHandler = () => {
     axios
-      .get(
-        `https://api.giphy.com/v1/gifs/trending?api_key=${myKey}&limit=${
-          pagination.limit
-        }&offset=${pagination.offset}`
-      )
+      .get(`/trending?limit=${pagination.limit}&offset=${pagination.offset}`)
       .then(response => {
         setSpinner(false);
         // handle success
@@ -65,9 +60,9 @@ const App = () => {
 
     axios
       .get(
-        `https://api.giphy.com/v1/gifs/search?api_key=${myKey}&q=${query}&limit=${
-          pagination.limit
-        }&offset=${pagination.offset}`
+        `/search?q=${query}&limit=${pagination.limit}&offset=${
+          pagination.offset
+        }`
       )
       .then(response => {
         setSpinner(false);
@@ -138,6 +133,7 @@ const App = () => {
   }
   let windowPercent = (windowPosition * 100).toFixed(2);
   if (windowPercent >= 100) {
+    setWindowPosition(0);
     if (searchStr) {
       searchHandler(searchStr);
     } else {
