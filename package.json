@@ -25,7 +25,7 @@
     "deploy": "gh-pages -d build",
     "server": "node-env-run server --exec nodemon | pino-colada",
     "dev": "run-p server start",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "run-p server start"
   },
   "eslintConfig": {
     "extends": "react-app"
