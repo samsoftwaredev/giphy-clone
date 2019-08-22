@@ -2,14 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const request = require("request");
-const myKey = "QaTaTpn5xJGGG1Wktc0Gq6CEhsiSz2R3";
+const myKey = process.env.GIPHY_KEY;
+const appProduction = process.env.APP_PRODUCTION;
 const app = express();
 let port = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //this is the / path
-app.use(express.static(path.join(__dirname, "../build")));
+if (appProduction) {
+  app.use(express.static(path.join(__dirname, "../build")));
+} else {
+  app.use(express.static(path.join(__dirname, "../public")));
+}
 
 app.get("/trending", (req, res) => {
   const url = `https://api.giphy.com/v1/gifs/trending?api_key=${myKey}&limit=${
@@ -40,5 +45,7 @@ app.get("/search", (req, res) => {
 });
 
 app.listen(port, () =>
-  console.log(`Express server is running on localhost:${port}`)
+  console.log(
+    `Express server is running on localhost:${port}, go to port 3000 to see app`
+  )
 );

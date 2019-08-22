@@ -18,12 +18,11 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "react-scripts build",
+    "app": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "server": "node-env-run server --exec nodemon | pino-colada",
-    "dev": "run-p server start"
+    "server": "node-env-run server --exec nodemon",
+    "dev": "run-p server app"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,4 +1,7 @@
-.App {
+.AppLogo {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 2.5em;
 }
 .AppBackground {
   position: fixed;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import "./App.css";
 import axios from "axios";
 
@@ -43,7 +43,6 @@ const App = () => {
         setSpinner(false);
         // handle success
         let res = response.data;
-        console.log(res);
         paginationHandler(res, "");
       })
       .catch(err => {
@@ -57,8 +56,6 @@ const App = () => {
   };
 
   const searchHandler = query => {
-    console.log(`search for: ${query}`);
-
     axios
       .get(
         `/search?q=${query}&limit=${pagination.limit}&offset=${
@@ -120,8 +117,6 @@ const App = () => {
       document.documentElement.clientHeight;
 
     const scrolled = winScroll / height;
-    console.log(scrolled);
-
     setWindowPosition(scrolled);
   };
 
@@ -133,7 +128,7 @@ const App = () => {
     display = <NotFound />;
   }
   let windowPercent = (windowPosition * 100).toFixed(2);
-  if (windowPercent >= 100) {
+  if (windowPercent >= 95 && windowPercent < 98) {
     setWindowPosition(0);
     if (searchStr) {
       searchHandler(searchStr);
@@ -143,10 +138,13 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <Fragment>
       <div className="AppBackground" />
-      <Logo />
+
       <Wrapper>
+        <div className="AppLogo">
+          <Logo />
+        </div>
         <Search val={searchStr} search={searchHandler} />
         <Tags
           goto={searchHandler}
@@ -156,7 +154,7 @@ const App = () => {
       </Wrapper>
       <Wrapper>{spinner ? <Spinner /> : display}</Wrapper>
       <p>Powered By GIPHY</p>
-    </div>
+    </Fragment>
   );
 };
 
